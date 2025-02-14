@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-Shirts - Categoria 1</title>
+  <!-- Elegant font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* Adaptive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header {
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #333;
+      border: 1px solid #333;
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+    main {
+      max-width: 1200px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #bfa06a;
+      padding-bottom: 5px;
+      width: fit-content;
+    }
+    /* NEW CODE: Carousel Styles – Se mostrará 4 ítems a la vez */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    /* El contenedor de la fila completa */
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    /* Cada ítem ocupa el 25% (4 ítems en vista) menos un margen interno */
+    .carousel-item {
+      flex: 0 0 calc((100% - 60px) / 4); /* 4 ítems; 3 gaps de 20px */
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-right: 20px;
+      padding: 10px;
+      text-align: center;
+    }
+    .carousel-item:last-child {
+      margin-right: 0;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 10px;
+      text-align: center;
+    }
+    .product-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .product-info p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    /* Arrow buttons del carrusel */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .carousel-btn.prev {
+      left: 10px;
+    }
+    .carousel-btn.next {
+      right: 10px;
+    }
+    /* End NEW CODE */
+  </style>
+</head>
+<body>
+  <header>
+    <a href="tshirts.html" class="back-button">Back to T-Shirts</a>
+    <h1>T-Shirts - Categoria 1</h1>
+  </header>
+  <main>
+    <!-- Subcategoría: Cold -->
+    <section>
+      <h2>Cold</h2>
+      <!-- NEW CODE: Carousel Container para Cold con 8 ítems -->
+      <div class="carousel-container" id="cold-container">
+        <button class="carousel-btn prev" onclick="prevSlide('cold')">&#10094;</button>
+        <div class="carousel" id="cold-carousel">
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Frio+T-Shirt+1" alt="Frio T-Shirt 1">
+            <div class="product-info">
+              <h3>Frio T-Shirt 1</h3>
+              <p>Warm fabric</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Frio+T-Shirt+2" alt="Frio T-Shirt 2">
+            <div class="product-info">
+              <h3>Frio T-Shirt 2</h3>
+              <p>Thick material</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Frio+T-Shirt+3" alt="Frio T-Shirt 3">
+            <div class="product-info">
+              <h3>Frio T-Shirt 3</h3>
+              <p>Cozy fabric</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Frio+T-Shirt+4" alt="Frio T-Shirt 4">
+            <div class="product-info">
+              <h3>Frio T-Shirt 4</h3>
+              <p>Insulated design</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Cold+Extra+1" alt="Cold Extra 1">
+            <div class="product-info"><h3>Cold Extra 1</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Cold+Extra+2" alt="Cold Extra 2">
+            <div class="product-info"><h3>Cold Extra 2</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Cold+Extra+3" alt="Cold Extra 3">
+            <div class="product-info"><h3>Cold Extra 3</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Cold+Extra+4" alt="Cold Extra 4">
+            <div class="product-info"><h3>Cold Extra 4</h3></div>
+          </a>
+        </div>
+        <button class="carousel-btn next" onclick="nextSlide('cold')">&#10095;</button>
+      </div>
+      <!-- End NEW CODE -->
+    </section>
+    
+    <!-- Subcategoría: Warm -->
+    <section>
+      <h2>Warm</h2>
+      <!-- NEW CODE: Carousel Container para Warm -->
+      <div class="carousel-container" id="warm-container">
+        <button class="carousel-btn prev" onclick="prevSlide('warm')">&#10094;</button>
+        <div class="carousel" id="warm-carousel">
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Calor+T-Shirt+1" alt="Calor T-Shirt 1">
+            <div class="product-info">
+              <h3>Calor T-Shirt 1</h3>
+              <p>Light fabric</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Calor+T-Shirt+2" alt="Calor T-Shirt 2">
+            <div class="product-info">
+              <h3>Calor T-Shirt 2</h3>
+              <p>Breathable material</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Calor+T-Shirt+3" alt="Calor T-Shirt 3">
+            <div class="product-info">
+              <h3>Calor T-Shirt 3</h3>
+              <p>Cool and airy</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Calor+T-Shirt+4" alt="Calor T-Shirt 4">
+            <div class="product-info">
+              <h3>Calor T-Shirt 4</h3>
+              <p>Moisture-wicking</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Warm+Extra+1" alt="Warm Extra 1">
+            <div class="product-info"><h3>Warm Extra 1</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Warm+Extra+2" alt="Warm Extra 2">
+            <div class="product-info"><h3>Warm Extra 2</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Warm+Extra+3" alt="Warm Extra 3">
+            <div class="product-info"><h3>Warm Extra 3</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Warm+Extra+4" alt="Warm Extra 4">
+            <div class="product-info"><h3>Warm Extra 4</h3></div>
+          </a>
+        </div>
+        <button class="carousel-btn next" onclick="nextSlide('warm')">&#10095;</button>
+      </div>
+      <!-- End NEW CODE -->
+    </section>
+    
+    <!-- Subcategoría: Formal -->
+    <section>
+      <h2>Formal</h2>
+      <!-- NEW CODE: Carousel Container para Formal -->
+      <div class="carousel-container" id="formal-container">
+        <button class="carousel-btn prev" onclick="prevSlide('formal')">&#10094;</button>
+        <div class="carousel" id="formal-carousel">
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+T-Shirt+1" alt="Formal T-Shirt 1">
+            <div class="product-info">
+              <h3>Formal T-Shirt 1</h3>
+              <p>Elegant fabric</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+T-Shirt+2" alt="Formal T-Shirt 2">
+            <div class="product-info">
+              <h3>Formal T-Shirt 2</h3>
+              <p>Smooth material</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+T-Shirt+3" alt="Formal T-Shirt 3">
+            <div class="product-info">
+              <h3>Formal T-Shirt 3</h3>
+              <p>Refined texture</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+T-Shirt+4" alt="Formal T-Shirt 4">
+            <div class="product-info">
+              <h3>Formal T-Shirt 4</h3>
+              <p>Luxurious fabric</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+Extra+1" alt="Formal Extra 1">
+            <div class="product-info"><h3>Formal Extra 1</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+Extra+2" alt="Formal Extra 2">
+            <div class="product-info"><h3>Formal Extra 2</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+Extra+3" alt="Formal Extra 3">
+            <div class="product-info"><h3>Formal Extra 3</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Formal+Extra+4" alt="Formal Extra 4">
+            <div class="product-info"><h3>Formal Extra 4</h3></div>
+          </a>
+        </div>
+        <button class="carousel-btn next" onclick="nextSlide('formal')">&#10095;</button>
+      </div>
+      <!-- End NEW CODE -->
+    </section>
+    
+    <!-- Subcategoría: Informal -->
+    <section>
+      <h2>Informal</h2>
+      <!-- NEW CODE: Carousel Container para Informal -->
+      <div class="carousel-container" id="informal-container">
+        <button class="carousel-btn prev" onclick="prevSlide('informal')">&#10094;</button>
+        <div class="carousel" id="informal-carousel">
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+T-Shirt+1" alt="Informal T-Shirt 1">
+            <div class="product-info">
+              <h3>Informal T-Shirt 1</h3>
+              <p>Casual style</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+T-Shirt+2" alt="Informal T-Shirt 2">
+            <div class="product-info">
+              <h3>Informal T-Shirt 2</h3>
+              <p>Everyday wear</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+T-Shirt+3" alt="Informal T-Shirt 3">
+            <div class="product-info">
+              <h3>Informal T-Shirt 3</h3>
+              <p>Relaxed fit</p>
+            </div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+Extra+1" alt="Informal Extra 1">
+            <div class="product-info"><h3>Informal Extra 1</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+Extra+2" alt="Informal Extra 2">
+            <div class="product-info"><h3>Informal Extra 2</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+Extra+3" alt="Informal Extra 3">
+            <div class="product-info"><h3>Informal Extra 3</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+Extra+4" alt="Informal Extra 4">
+            <div class="product-info"><h3>Informal Extra 4</h3></div>
+          </a>
+          <a href="item-detail.html" class="carousel-item">
+            <img src="https://via.placeholder.com/300x200?text=Informal+Extra+5" alt="Informal Extra 5">
+            <div class="product-info"><h3>Informal Extra 5</h3></div>
+          </a>
+        </div>
+        <button class="carousel-btn next" onclick="nextSlide('informal')">&#10095;</button>
+      </div>
+      <!-- End NEW CODE -->
+    </section>
+  </main>
+  
+  <!-- NEW CODE: JavaScript para el carrusel (funciones para avanzar/retroceder) -->
+  <script>
+    // Objeto para almacenar el índice actual de cada carrusel
+    const carouselIndex = {
+      cold: 0,
+      warm: 0,
+      formal: 0,
+      informal: 0
+    };
+    
+    function nextSlide(id) {
+      const container = document.getElementById(id + '-container');
+      const carousel = document.getElementById(id + '-carousel');
+      const containerWidth = container.clientWidth;
+      // Si hay 8 ítems y se muestran 4, solo hay 2 páginas (índice 0 y 1)
+      if (carouselIndex[id] < 1) {
+        carouselIndex[id]++;
+        carousel.style.transform = `translateX(-${containerWidth}px)`;
+      }
+    }
+    
+    function prevSlide(id) {
+      const container = document.getElementById(id + '-container');
+      const carousel = document.getElementById(id + '-carousel');
+      const containerWidth = container.clientWidth;
+      if (carouselIndex[id] > 0) {
+        carouselIndex[id]--;
+        carousel.style.transform = `translateX(-${containerWidth * carouselIndex[id]}px)`;
+      }
+    }
+  </script>
+  <!-- End NEW CODE -->
+</body>
+</html>

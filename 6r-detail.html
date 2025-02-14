@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Item Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #333;
+      border: 1px solid #333;
+      padding: 5px 10px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .back-button:hover {
+      background-color: #c4c4c4;
+      color: #fff;
+    }
+      .see-button {
+     position: absolute;
+     bottom: 20px;
+     right: 20px;
+     font-size: 1rem;
+     text-align: center;
+     color: #333;
+     border: 1px solid #333;
+     padding: 5px 10px;
+     text-decoration: none;
+     transition: background-color 0.3s;
+     height: 40px;
+     width: 150px;
+    }
+    .see-button:hover {
+      background-color: #c4c4c4;
+      color: #fff;
+    }
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .item-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .item-image {
+      flex: 1 1 400px;
+      width: 600px;
+    }
+    /* NEW CODE: Changed object-fit to contain so the entire image is visible */
+    .item-image img {
+         width: 100%;
+         height: 500px;
+      object-fit: contain;
+      /* Optional: add a background to fill empty space if aspect ratios differ */
+      background-color: #fff;
+    }
+    .item-description {
+     position: relative; /* Added for absolute positioning of the see-button */
+     flex: 1 1 300px;
+     max-width: 600px;
+     padding: 20px;
+     background-color: #fff;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+    }
+    .matching-section {
+      margin-top: 20px;
+    }
+    .matching-section h2 {
+     font-size: 1.8rem;
+     margin-bottom: 10px;
+     border-bottom: 1px solid #bfa06a;
+     padding-bottom: 10px;
+     width: fit-content;
+    }
+    .matching-items {
+     display: flex;
+     gap: 10px;
+     flex-wrap: wrap;
+    }
+    .matching-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      flex: 1 1 calc(20% - 20px);
+      max-width: calc(20% - 20px);
+      transition: transform 0.3s ease;
+    }
+    .matching-item:hover {
+      transform: translateY(-5px);
+    }
+    .matching-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+    }  
+    .matching-item p {
+      text-align: center;
+      padding: 5px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    /* Sección actualizada para mostrar 5 ítems distribuidos a lo largo de la pantalla */
+    .carousel {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;  /* Espacio equitativo entre los ítems */
+      padding: 50px 0;
+    }
+    .carousel-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      text-align: center;
+      padding: 10px;
+      flex: 1 1 calc(20% - 20px);
+      max-width: calc(20% - 20px);
+      transition: transform 0.3s ease;
+    }
+    .carousel-item:hover {
+      transform: translateY(-5px);
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+    }
+    </style>
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-button">Go to Closet</a>
+  </header>
+  <main>
+    <section class="item-detail">
+      <div class="item-image">
+        <img src="woredrobe/remeras/6remera escote blanca.png" alt="Selected Item">
+      </div>
+      <div class="item-description">
+        <h1>Item Name</h1>
+        <p>Blusa de hilo y lino blanca</p>
+        <a href="tshirts.html" class="see-button">See all t-shirts</a>
+      </div>
+    </section>
+    <section class="matching-section">
+      <h2>Matching Items</h2>
+      <div class="carousel">
+        <div class="carousel-item">
+          <img src="woredrobe/pantalones/4cargobrasil-Photoroom.png" alt="Match 1">
+          <p>Match 1</p>
+        </div>
+        <div class="carousel-item">
+          <img src="woredrobe/pantalones/11short jean claro informal.png" alt="Match 2">
+          <p>Match 2</p>
+        </div>
+        <div class="carousel-item">
+          <img src="woredrobe/polleras/10pollera jean negra.png" alt="Match 3">
+          <p>Match 3</p>
+        </div>
+        <div class="carousel-item">
+          <img src="woredrobe/zapatos/12zapatillas negras.png" alt="Match 4">
+          <p>Match 4</p>
+        </div>
+        <div class="carousel-item">
+          <img src="woredrobe/accesorios/carteras/17.png" alt="Match 5">
+          <p>Match 5</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

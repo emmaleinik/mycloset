@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emm's Closet</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="woredrobe/w2.png">
+  
+  <!-- Elegant font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      background-color: #9b9b9b;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .sidebar .scroll-top {
+      margin-bottom: 30px;
+    }
+    .sidebar .scroll-top img {
+      margin-left: 5px;
+      width: 90%;
+      height: 110px;
+      cursor: pointer;
+      border: 1px solid #ffffff;
+    }
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar nav ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .sidebar nav ul li a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Content Wrapper (to offset the sidebar) */
+    .content {
+      margin-left: 220px; /* Sidebar width + some padding */
+    }
+    
+    /* Header and Main Containers */
+    header, main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    /* Global Image Styles */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Header Text Styles */
+    .header-text {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background-image: url('woredrobe/header-Photoroom.png'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;       /* Ajusta la imagen para cubrir el contenedor */
+  background-position: center;  /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+    .header-text h1 {
+      font-size: 3rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .header-text p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    
+    /* Carousel Styles */
+   .carousel {
+   position: relative;
+   overflow: hidden;
+   margin-top: 20px;
+   }
+   .carousel-images {
+   display: flex;
+   transition: transform 0.8s ease-in-out;
+   }
+   .carousel-images img {
+   width: 100%;
+   flex-shrink: 0;
+   object-fit: contain;
+   height: 300px;
+   border-radius: 70% / 50%; /* Forma ovalada */
+  
+   /* Difuminado de bordes */
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 1, 1) 50%, rgba(0, 0, 0, 0) 80%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 80%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 80%);
+ }
+ 
+ .carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none; 
+  color: transparent;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+ }
+ .carousel button:hover {
+  background: transparent;
+ }
+ .carousel .prev {
+  left: 10px;
+ }
+ .carousel .next {
+  right: 10px;
+ }
+    
+    /* Section Styles */
+    section {
+      margin: 60px 0;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #bfa06a;
+      padding-bottom: 5px;
+      width: fit-content;
+    }
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .items a {
+      flex: 1 1 calc(33.333% - 20px);
+      max-width: calc(33.333% - 20px);
+      text-decoration: none;
+      color: inherit;
+    }
+    .item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .item:hover {
+      transform: translateY(-5px);
+    }
+    .item img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+    }
+    .item:hover{
+      background-color: #e3e3e3;
+    }
+    .item-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .item-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    .see-more-container {
+      text-align: right;
+      margin-top: 10px;
+    }
+    .see-more-btn {
+      display: inline-block;
+      background-color: #bfa06a;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .see-more-btn:hover {
+      background-color: #a38c55;
+      color: #e7e7e7;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 900px) {
+      .items a {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+      }
+    }
+    @media (max-width: 600px) {
+      .items a {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .carousel-images img {
+        height: 300px;
+      }
+      .top-nav ul {
+        flex-direction: column;
+      }
+    }
+
+    .recomendaciones{
+      left: 90px;
+      margin-left: 90px;
+    }
+    
+    /* Styles for AI Bubble and Drop Zone */
+    #ai-bubble {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 155px;
+      background-color: #9b9b9b;
+      border: 1px solid #ffffff;
+      padding: 10px;
+      z-index: 9999;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+      color: #1d1d1d
+    }
+    
+    /* Estilos para el botón de regarga */
+    #reset-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #e2e2e2;
+      color: #5a5a5a;
+    }
+    #reset-button:hover {
+      background-color: #d7d7d7;
+    }
+
+    #drop-zone {
+      border: 2px dashed #ffffff;
+      padding: 20px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Lateral Sidebar -->
+  <aside class="sidebar">
+    <!-- Scroll-to-Top Image at the Top of the Sidebar -->
+    <div class="scroll-top">
+      <a href="#" onclick="scrollToTop(); return false;">
+        <!-- Replace 'up-arrow.png' with your desired image path -->
+        <img src="woredrobe/w2.png" alt="Back to Top">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#tshirts">T-Shirts</a></li>
+        <li><a href="#dresses">Dresses</a></li>
+        <li><a href="#coats">Coats</a></li>
+        <li><a href="#pants">Pants</a></li>
+        <li><a href="#polo-shirts">Skirts</a></li>
+        <li><a href="#shoes">Shoes</a></li>
+        <li><a href="#accessories">Accessories</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Main Content Wrapper (offset for sidebar) -->
+  <div class="content">
+    <header>
+      <!-- Header Text -->
+      <div class="header-text">
+        <h1>My Closet</h1>
+        <p>- WEM's Wardrobe -</p>
+      </div>
+      
+      <!-- Carousel -->
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="https://ideogram.ai/assets/image/lossless/response/G0r-8M4GTqKkfHPOg-dRug" alt="Luxury Collection 2">
+          <img src="https://ideogram.ai/assets/image/lossless/response/6qfGyFncQIqbRn3GNtIcRw" alt="Luxury Collection 1">
+          <img src="https://ideogram.ai/assets/image/lossless/response/uAWkEekmQd-l3fwiYEEyhQ" alt="Luxury Collection 4">
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </header>
+    <main>
+      <!-- T-Shirts Section -->
+      <section id="tshirts">
+        <h2>T-Shirts</h2>
+        <div class="items">
+          <a href="1r-detail.html">
+            <div class="item">
+              <img src="woredrobe/remeras/1blusa tira blanca.png" alt="Vestido" draggable="true">
+              <div class="item-content">
+                <h3>T-Shirt 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="3r-detail.html">
+            <div class="item">
+              <img src="woredrobe/remeras/3camisa crema.png" alt="T-Shirt 2">
+              <div class="item-content">
+                <h3>T-Shirt 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="11r-detail.html">
+            <div class="item">
+              <img src="woredrobe/remeras/11remera entallada crema.png" alt="T-Shirt 3">
+              <div class="item-content">
+                <h3>T-Shirt 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="tshirts.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+      
+      <!-- Dresses Section -->
+      <section id="dresses">
+        <h2>Dresses</h2>
+        <div class="items">
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/vestidos/1vestido terciopelo gris.png" alt="Dress 1">
+              <div class="item-content">
+                <h3>Dress 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/vestidos/5vestido entallado algodon azul marino.png" alt="Dress 2">
+              <div class="item-content">
+                <h3>Dress 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/vestidos/2vestido entallado dorado.png" alt="Dress 3">
+              <div class="item-content">
+                <h3>Dress 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="dresses.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+      
+      <!-- Coats Section -->
+      <section id="coats">
+        <h2>Coats</h2>
+        <div class="items">
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/abrigos/1saco lana con brillo.png" alt="Coat 1">
+              <div class="item-content">
+                <h3>Coat 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/abrigos/19saco terciopelo gris.png" alt="Coat 2">
+              <div class="item-content">
+                <h3>Coat 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/abrigos/20buzogrisjapon-Photoroom.png" alt="Coat 3">
+              <div class="item-content">
+                <h3>Coat 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="coats.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+      
+      <!-- Pants Section -->
+      <section id="pants">
+        <h2>Pants</h2>
+        <div class="items">
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/pantalones/1bermuda blanca.png" alt="Pants 1">
+              <div class="item-content">
+                <h3>Pants 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/pantalones/4cargobrasil-Photoroom.png" alt="Pants 2">
+              <div class="item-content">
+                <h3>Pants 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/pantalones/6jeancargochile-Photoroom.png" alt="Pants 3">
+              <div class="item-content">
+                <h3>Pants 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="pants.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+      
+      <!-- Skirts Section -->
+      <section id="polo-shirts">
+        <h2>Skirts</h2>
+        <div class="items">
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/polleras/1pollera jean planca.png" alt="Skirts 1">
+              <div class="item-content">
+                <h3>Skirts 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/polleras/3pollera tela blanca.png" alt="Skirts 2">
+              <div class="item-content">
+                <h3>Skirts 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/polleras/6pollera jean beige.png" alt="Skirts 3">
+              <div class="item-content">
+                <h3>Skirts 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="skirts.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+      
+      <!-- Shoes Section -->
+      <section id="shoes">
+        <h2>Shoes</h2>
+        <div class="items">
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/zapatos/1sandalias blancas.png" alt="Shoes 1">
+              <div class="item-content">
+                <h3>Shoes 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/zapatos/8zapatillas botitas blancas beige.png" alt="Shoes 2">
+              <div class="item-content">
+                <h3>Shoes 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/zapatos/9botas texanas.png" alt="Shoes 3">
+              <div class="item-content">
+                <h3>Shoes 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="shoes.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+      
+      <!-- Accessories Section -->
+      <section id="accessories">
+        <h2>Accessories</h2>
+        <div class="items">
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/accesorios/carteras/8.png" alt="Accessory 1">
+              <div class="item-content">
+                <h3>Accessory 1</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/accesorios/Anillos pulseras gafas/9.png" alt="Accessory 2">
+              <div class="item-content">
+                <h3>Accessory 2</h3>
+              </div>
+            </div>
+          </a>
+          <a href="item-detail.html">
+            <div class="item">
+              <img src="woredrobe/accesorios/Collares/11.png" alt="Accessory 3">
+              <div class="item-content">
+                <h3>Accessory 3</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="see-more-container">
+          <a href="accessories.html" class="see-more-btn">See More</a>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <!-- JavaScript for Carousel Functionality -->
+  <script>
+    const carouselImages = document.querySelector('.carousel-images');
+    const images = document.querySelectorAll('.carousel-images img');
+    const prevButton = document.querySelector('.carousel .prev');
+    const nextButton = document.querySelector('.carousel .next');
+    let currentIndex = 0;
+    const totalImages = images.length;
+    const slideInterval = 10000; // 10 seconds
+
+    function updateCarousel() {
+      carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+      updateCarousel();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+      updateCarousel();
+    }
+
+    prevButton.addEventListener('click', showPrev);
+    nextButton.addEventListener('click', showNext);
+    setInterval(showNext, slideInterval);
+  </script>
+  
+  <!-- Scroll to Top Function -->
+  <script>
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  
+  <!-- AI Bubble for Drag & Drop -->
+  <div id="ai-bubble">
+    <h3>WEMAI</h3>
+    <div id="drop-zone">IMG</div>
+    <button id="reset-button">Limpiar</button>
+    <div id="result"></div>
+  </div>
+  
+  <!-- JavaScript para simulación de análisis con IA -->
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const resultDiv = document.getElementById('result');
+    const resetButton = document.getElementById('reset-button');
+
+    // Función que simula el análisis de la imagen mediante IA
+    function simulateAIAnalysis(imageSource) {
+      let descriptionParam = "Desconocido";
+      try {
+        const url = new URL(imageSource, window.location.href);
+        if (url.searchParams.has("text")) {
+          descriptionParam = url.searchParams.get("text");
+        } else if (url.searchParams.has("description")) {
+          descriptionParam = url.searchParams.get("description");
+        } else {
+          // Extraer parte del nombre de la imagen si es posible
+          const pathParts = url.pathname.split('/');
+          const fileName = pathParts[pathParts.length - 1];
+          descriptionParam = fileName.split('.')[0] || "Desconocido";
+        }
+      } catch (e) {
+        console.error("Error al analizar la URL:", e);
+      }
+      
+      // Lógica de recomendación basada en el análisis
+      const lowerDesc = descriptionParam.toLowerCase();
+      let recommendation = "";
+      //Vestidos
+      if (lowerDesc.includes("vestido") || lowerDesc.includes("entallado")) {
+        recommendation = "Saco de lana y botas altas para un look elegante.";
+      } else if (lowerDesc.includes("terciopelo") || lowerDesc.includes("vestido")) {
+        recommendation = "Cartera mini, high heels y un collar llamativo";
+      //Remeras
+      } else if (lowerDesc.includes("blusa") || lowerDesc.includes("tira")) {
+        recommendation = "Jeans, zapatillas y cartera xl.";
+      } else if (lowerDesc.includes("remera") || lowerDesc.includes("entallada")) {
+        recommendation = "Cargos, botas y uns aros llamativos.";
+      } else if (lowerDesc.includes("camisa") || lowerDesc.includes("top")) {
+        recommendation = "Pollera de jean con zapatillas o stilletos.";
+      } else if (lowerDesc.includes("hombros") || lowerDesc.includes("top")) {
+        recommendation = "Bermuda blanca y sandalias.";
+      } else if (lowerDesc.includes("escote") || lowerDesc.includes("tirantes")) {
+        recommendation = "Tiro bajo, high heels y un collar llamativo.";
+
+      //Abrigos
+      }else if (lowerDesc.includes("sueter") || lowerDesc.includes("hoddie")) {
+        recommendation = "Oxfod, botas y anillos delicados.";
+      } else if (lowerDesc.includes("terciopelo") || lowerDesc.includes("saco")) {
+        recommendation = "Vestido entallado, stilletos y cartera mini.";
+      } else if (lowerDesc.includes("buzo") || lowerDesc.includes("chaleco")) {
+        recommendation = "Cargo, texanas y gafas";
+      }else if (lowerDesc.includes("campera") || lowerDesc.includes("camperas")) {
+        recommendation = "Jean con stilletos y aros chunky.";
+      } else if (lowerDesc.includes("hulk")) {
+        recommendation = "No se puede combinar con nada";
+
+      //Pantalones
+      } else if (lowerDesc.includes("jean") || lowerDesc.includes("cargo") || lowerDesc.includes("pesquero")) {
+        recommendation = "Remera entallada o top con cartera negra";
+      } else if (lowerDesc.includes("tirobajo") || lowerDesc.includes("oxford")) {
+        recommendation = "Camia o blusa, botas y anillos delicados.";
+      } else if (lowerDesc.includes("bermuda") || lowerDesc.includes("vermuda")) {
+        recommendation = "Remera entallada, zapatillas y cartera mini.";
+      } else if (lowerDesc.includes("short") || lowerDesc.includes("short jean")) {
+        recommendation = "Camisa o top, texanas y saco de jean.";
+      } else if (lowerDesc.includes("estampado") || lowerDesc.includes("leopardo")) {
+        recommendation = "Remera o camisa blanca, botas y cartera mini.";
+
+      //Polleras
+      } else if (lowerDesc.includes("entallada tela blanca")) {
+        recommendation = "Top botas y cartera mini";
+      } else if (lowerDesc.includes("jean planca") || (lowerDesc.includes("jean beige"))) {
+        recommendation = "Botas con remeras sin hombros";
+      } else if (lowerDesc.includes("tela blanca") || lowerDesc.includes("tela beige")) {
+        recommendation = " Top de jean y high heels";
+
+      //Zapatos
+      } else if (lowerDesc.includes("zapatillas") || lowerDesc.includes("adidas")) {
+        recommendation = "Jeans, Camisa y cartera mini";
+      } else if (lowerDesc.includes("botitas") || lowerDesc.includes("botas")) {
+        recommendation = "Cargo o pollera con blusa y cartera mid";
+      } else if (lowerDesc.includes("texanas") || lowerDesc.includes("botas texanas")) {
+        recommendation = "Pollera de jean, top y gafas";
+      } else if (lowerDesc.includes("sandalias") || lowerDesc.includes("sandalias blancas")) {
+        recommendation = "Bermuda o pollera con blusa y collar delicado";
+      } else if (lowerDesc.includes("stilletos") || lowerDesc.includes("tacos")) {
+        recommendation = "Vestido entallado, cargo con blusa ";
+      } else {
+        recommendation = "¡Combínalo con tu estilo único!";
+      } 
+
+      // Simulamos un proceso de pensamiento "inteligente"
+      const adjectives = ["increíble", "sofisticada", "moderna", "vanguardista", "exclusiva"];
+      const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+      
+      return { 
+        description: `Imagen identificada: <strong>${descriptionParam}</strong> (${randomAdjective})`, 
+        recommendation 
+      };
+    }
+
+    // Procesar la imagen y mostrar el resultado
+    function processImage(imageSource) {
+      resultDiv.innerHTML = "<p>Analizando la imagen... </p>";
+      setTimeout(() => { // Simulamos un pequeño retraso para el análisis
+        try {
+          const result = simulateAIAnalysis(imageSource);
+          resultDiv.innerHTML = `
+            <p><strong>Recomendación:</strong> ${result.recommendation}</p>
+          `;
+        } catch (error) {
+          resultDiv.innerHTML = "<p>Error: No se pudo procesar la imagen. </p>";
+          console.error(error);
+        }
+      }, 1000);
+    }
+
+    // Eventos de drag & drop
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('hover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('hover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('hover');
+      
+      let imageSource = "";
+      let htmlData = e.dataTransfer.getData("text/html");
+      if (htmlData) {
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = htmlData;
+        const imgTag = tempDiv.querySelector("img");
+        if (imgTag && imgTag.src) {
+          imageSource = imgTag.src;
+        }
+      }
+      
+      if (!imageSource) {
+        imageSource = e.dataTransfer.getData("text/uri-list");
+      }
+      
+      if (imageSource) {
+        processImage(imageSource);
+      } else {
+        resultDiv.innerHTML = "<p>No se detectaron datos de imagen válidos .</p>";
+      }
+    });
+
+    // Botón de regarga para limpiar la burbuja
+    resetButton.addEventListener('click', () => {
+      resultDiv.innerHTML = "";
+      dropZone.textContent = "+";
+      dropZone.classList.remove('hover');
+    });
+  </script>
+</body>
+</html>

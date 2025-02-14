@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pants - All Items</title>
+  <!-- Elegant font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="woredrobe/w2.png">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* Adaptive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header {
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      text-align: center;
+      position: relative;
+    }
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #333;
+      border: 1px solid #333;
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+    main {
+      max-width: 1200px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #bfa06a;
+      padding-bottom: 5px;
+      width: fit-content;
+    }
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .product-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      flex: 1 1 calc(20% - 20px);
+      max-width: calc(20% - 20px);
+      transition: transform 0.3s ease;
+    }
+    .product-item:hover {
+      transform: translateY(-5px);
+    }
+    /* NUEVO CÓDIGO: Ajuste para mostrar la imagen completa sin recorte */
+    .product-item img {
+      width: 100%;
+      height: 200px; /* cambiado de 200px a auto */
+      object-fit: contain; /* cambiado de cover a contain */
+    }
+    
+    .product-info {
+      padding: 10px;
+      text-align: center;
+    }
+    .product-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .product-info p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @media (max-width: 900px) {
+      .product-item {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+      }
+    }
+    @media (max-width: 600px) {
+      .product-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+    
+    /* NEW CODE: Hamburger Menu Styles */
+    .hamburger {
+      display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #444;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    .side-nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      background-color: #444;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      border-right: 1px solid #444;
+    }
+    .side-nav a {
+      padding: 8px 32px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+    }
+    .side-nav a:hover {
+      background-color: #676767;
+    }
+    .side-nav .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 2rem;
+      margin-left: 50px;
+      cursor: pointer;
+    }
+    /* End NEW CODE */
+  </style>
+</head>
+<body>
+  <header>
+    <!-- NEW CODE: Hamburger Menu in Header -->
+    <div class="hamburger" onclick="openNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id="mySidenav" class="side-nav">
+      <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+      <a href="tshirts-cat1.html">Categoria 1</a>
+      <a href="#">Formal</a>
+      <a href="#">Informal</a>
+      <a href="#">Frio</a>
+      <a href="#">Calor</a>
+    </div>
+    <!-- End NEW CODE -->
+    <a href="index.html" class="back-button">Back to Closet</a>
+    <h1>Pants - All Items</h1>
+  </header>
+  <main>
+    <!-- (El contenido restante de la página muestra los 20 artículos divididos en subcategorías, como antes.) -->
+    <!-- Para abreviar, el contenido de abajo es el mismo que en el anterior tshirts.html -->
+    <section>
+      <div class="products-grid">
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/1bermuda blanca.png" alt="Summer T-Shirt 1">
+          <div class="product-info">
+            <h3>Summer T-Shirt 1</h3>
+            <p>Renner</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/2short jean blanco con verde.png" alt="Summer T-Shirt 2">
+          <div class="product-info">
+            <h3>Summer T-Shirt 2</h3>
+            <p>47! street</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/3pesqueroblanco-Photoroom.png" alt="Summer T-Shirt 3">
+          <div class="product-info">
+            <h3>Summer T-Shirt 3</h3>
+            <p>Renner</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/4cargobrasil-Photoroom.png" alt="Summer T-Shirt 4">
+          <div class="product-info">
+            <h3>Summer T-Shirt 4</h3>
+            <p>Renner</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/5short tela beige.png" alt="Summer T-Shirt 5">
+          <div class="product-info">
+            <h3>Summer T-Shirt 5</h3>
+            <p>Cuesta Blanca</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section>
+      <div class="products-grid">
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/6jeancargochile-Photoroom.png" alt="Winter T-Shirt 2">
+          <div class="product-info">
+            <h3>Winter T-Shirt 2</h3>
+            <p>H&M</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/7jean estampado de leopardo.png" alt="Winter T-Shirt 3">
+          <div class="product-info">
+            <h3>Winter T-Shirt 3</h3>
+            <p>Renner</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/8jeantirobajooxford-Photoroom.png" alt="Winter T-Shirt 4">
+          <div class="product-info">
+            <h3>Winter T-Shirt 4</h3>
+            <p>Zara</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/9jeancargobrasil-Photoroom.png" alt="Winter T-Shirt 5">
+          <div class="product-info">
+            <h3>Winter T-Shirt 5</h3>
+            <p>Renner</p>
+          </div>
+        </a>        
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/10jeantirobajo-Photoroom.png" alt="Formal T-Shirt 1">
+          <div class="product-info">
+            <h3>Formal T-Shirt 1</h3>
+            <p>Premium silk blend</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section>
+      <div class="products-grid">
+
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/11short jean claro informal.png" alt="Formal T-Shirt 2">
+          <div class="product-info">
+            <h3>Formal T-Shirt 2</h3>
+            <p>Como Quieres</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/12short jean claro.png" alt="Formal T-Shirt 3">
+          <div class="product-info">
+            <h3>Formal T-Shirt 3</h3>
+            <p>Refined cotton finish</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/13jean azul con dorado.png" alt="Formal T-Shirt 4">
+          <div class="product-info">
+            <h3>Formal T-Shirt 4</h3>
+            <p>Zara</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/14short jean oscuro.png" alt="Formal T-Shirt 5">
+          <div class="product-info">
+            <h3>Formal T-Shirt 5</h3>
+            <p>Batuk</p>
+          </div>
+        </a>        
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/15jean osucro trio bajo.png" alt="Informal T-Shirt 1">
+          <div class="product-info">
+            <h3>Informal T-Shirt 1</h3>
+            <p>Akihabara</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section>
+      <div class="products-grid">
+
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/16short pollera jean.png" alt="Informal T-Shirt 2">
+          <div class="product-info">
+            <h3>Informal T-Shirt 2</h3>
+            <p>Batuk</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/17.png" alt="Informal T-Shirt 3">
+          <div class="product-info">
+            <h3>Informal T-Shirt 3</h3>
+            <p>Comfortable material</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/18jeannegros-Photoroom.png" alt="Informal T-Shirt 4">
+          <div class="product-info">
+            <h3>Informal T-Shirt 4</h3>
+            <p>Soft jersey fabric</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/19oxfordnegros-Photoroom.png" alt="Informal T-Shirt 5">
+          <div class="product-info">
+            <h3>Informal T-Shirt 5</h3>
+            <p>Light and airy cotton</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/20bermuda skinny negra.png" alt="Winter T-Shirt 1">
+          <div class="product-info">
+            <h3>Winter T-Shirt 1</h3>
+            <p>Batuk</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/21sudaderamiami-Photoroom.png" alt="Winter T-Shirt 1">
+          <div class="product-info">
+            <h3>Winter T-Shirt 1</h3>
+            <p>VIP Jeans</p>
+          </div>
+        </a>
+        <a href="item-detail.html" class="product-item">
+          <img src="woredrobe/pantalones/22cargomiami-Photoroom.png" alt="Winter T-Shirt 1">
+          <div class="product-info">
+            <h3>Winter T-Shirt 1</h3>
+            <p>VIP Jeans</p>
+          </div>
+        </a>
+    </div>
+</section>
+</main>
+<!-- NEW CODE: Hamburger Menu JavaScript -->
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<!-- End NEW CODE -->
+</body>
+</html>
